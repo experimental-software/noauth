@@ -4,12 +4,34 @@ Fake authorization server which approves any token.
 
 ## Usage
 
-```
-docker run -it --rm \
-  -p 7777:8080 \
-  experimentalsoftware/noauth
+### Start the server
 
+```
+docker run -it --rm -p 7777:8080 experimentalsoftware/noauth
+```
+
+### Example request
+
+```
 echo "token=myscope" | http POST http://localhost:7777/token-info
+```
+
+```
+HTTP/1.1 200 OK
+Content-Encoding: gzip
+Content-Type: application/json
+Matched-Stub-Id: 9fa94da1-aee3-4039-871a-324e89e453bf
+Server: Jetty(9.4.20.v20190813)
+Transfer-Encoding: chunked
+Vary: Accept-Encoding, User-Agent
+
+{
+    "active": true,
+    "client_id": "apitest",
+    "scope": [
+        "myscope"
+    ]
+}
 ```
 
 ### Spring Boot
