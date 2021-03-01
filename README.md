@@ -52,8 +52,8 @@ security:
 ### Publish new Docker image
 
 ```
-docker_build.sh
-docker_push.sh
+./docker_build.sh
+./docker_push.sh
 ```
 
 ## References

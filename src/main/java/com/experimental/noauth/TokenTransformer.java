@@ -28,8 +28,10 @@ public class TokenTransformer extends ResponseDefinitionTransformer {
             scopes = requestBody.split("=")[1].trim();
         }
 
+        //language=JSON
         String responseBody = "{\n" +
                 "  \"active\" : true,\n" +
+                "  \"client_id\": \"apitest\",\n" +
                 "  \"scope\" : [\"" + scopes + "\"]\n" +
                 "}";
 
